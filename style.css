@@ -15,7 +15,7 @@ body{
     background-color: #1890f0;
 }
  .container{
-    background-color: #f0f0f0;
+    background-color: #DAE0E2;
     display: grid;
     align-items: center;
     grid-template-columns: 2fr 5fr 0.5fr;
@@ -52,7 +52,7 @@ body{
 .container .content .details .condition{
     margin-top : 1%;
     display: grid;
-    grid-template-columns : 1fr 3fr;
+    grid-template-columns : 3fr 8fr;
 }
 
 .container .content .report{
@@ -123,6 +123,6 @@ button{
 }
 
 #img{
-    margin-top: 1%;
-    height: 1em;
+    margin-top: -2%;
+    height: 2rem;
 } 
