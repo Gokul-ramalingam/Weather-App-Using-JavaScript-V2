@@ -3,8 +3,12 @@ let celsiusDetails = 26;
 let celsius = celsiusDetails;
 let farenheit;
 
+
 $('#button1').click(() =>{
   let cityName = $("#in").val();
+  $("#in").val('');
+  $('#spin').addClass('fa fa-circle-o-notch fa-spin');
+  // $('#spinButton').show();
   $.ajax({
     url:'http://api.openweathermap.org/data/2.5/weather?q='+cityName+'&appid='+key+'&mode=json&units=metric',
     type: 'GET',
@@ -13,6 +17,12 @@ $('#button1').click(() =>{
     },
     error:function(err){
       console.log(err);
+    },
+    complete:function(){
+      // $('#spinButton').hide();
+      // $('#button1').show();
+      $('#spin').removeClass('fa fa-circle-o-notch fa-spin');
+      $('#spin').addClass('fa fa-search');
     }
 });
 })
@@ -50,28 +60,16 @@ class DateProvider {
 
 class ProcessData {
   constructor(data) {
-    console.log(data);
-    
-    // this.process = (value) => {
-      document.getElementsByClassName("celsius")[0].style.color = "#1890f0";
-      document.getElementsByClassName("farenheit")[0].style.color = "#000000";
-      // console.log(value);
-      // this.cityDetails = array.filter((arr) => arr.city === value);
-      // celsiusDetails = this.cityDetails[0].degree;
+      $(".celsius").css('color',"#1890f0");
+      $(".farenheit").css('color', '#000000');
       celsius = Math.round(data.main.temp);
-      document.getElementsByClassName("cityName")[0]
-        .innerHTML = data.name + ", " + data.sys.country;
-      document.getElementsByClassName("date")[0]
-        .innerHTML = new DateProvider().dayInString + " " +
-        new DateProvider().hours + ":" + new DateProvider().minutes + " " +
-        new DateProvider().meridiem;
+      $(".cityName").text(data.name + ", " + data.sys.country);
+      $('.date').text(new DateProvider().dayInString + " " +
+      new DateProvider().hours + ":" + new DateProvider().minutes + " " +
+      new DateProvider().meridiem);
         $("#img").attr('src','http://openweathermap.org/img/wn/'+data.weather[0].icon+'@2x.png');
-      document.getElementById('climate')
-        .innerHTML = data.weather[0].description.split(" ")[0]+" "+data.weather[0].description.split(" ")[1];
-      document.getElementsByClassName("degree")[0]
-        .innerHTML = celsius;
-      // console.log(img);
-    // }
+      $('#climate').text(data.weather[0].description.split(" ")[0]+" "+data.weather[0].description.split(" ")[1])
+      $(".degree").text(celsius);
   }
 }
 
@@ -92,8 +90,8 @@ class Weather {
   constructor() {
     this.celsiusCount = 0;
     this.changeToFahrenheit = () => {
-      document.getElementsByClassName("farenheit")[0].style.color = "#1890f0";
-      document.getElementsByClassName("celsius")[0].style.color = "#000000";
+      $(".farenheit").css('color',"#1890f0");
+      $(".celsius").css('color',"#000000");
       // console.log(celsiusDetails);
       if (this.celsiusCount < 1) {
         farenheit = Math.floor(celsius * 1.8 + 32);
@@ -101,16 +99,16 @@ class Weather {
         this.celsiusCount++;
       }
       // console.log(farenheit);
-      document.getElementsByClassName("degree")[0].innerHTML = farenheit;
+      $(".degree").text(farenheit);
     }
 
     this.changeToCelsius = () => {
-      document.getElementsByClassName("celsius")[0].style.color = "#1890f0";
-      document.getElementsByClassName("farenheit")[0].style.color = "#000000";
+      $(".celsius").css('color', "#1890f0");
+      $(".farenheit").css('color', "#000000");
       celsiusDetails = celsius;
       this.celsiusCount--;
       // console.log(celsius);
-      document.getElementsByClassName("degree")[0].innerHTML = celsius;
+      $(".degree").text(celsius);
     }
   }
 }
