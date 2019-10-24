@@ -1,101 +1,21 @@
-/*This array contains various objects containing details of various cities*/
-const array = [{
-    city: 'Bangalore',
-    state: 'Karnataka',
-    degree: 26,
-    weather: 'Partly Cloudy',
-    image: 'images/cloudy.svg'
-  },
-  {
-    city: 'Chennai',
-    state: 'TamilNadu',
-    degree: 34,
-    weather: 'Sunny',
-    image: 'images/sunny.svg'
-  },
-  {
-    city: 'Coimbatore',
-    state: 'TamilNadu',
-    degree: 26,
-    weather: 'Partly Cloudy',
-    image: 'images/cloudy.svg'
-  },
-  {
-    city: 'Noida',
-    state: 'Delhi',
-    degree: 23,
-    weather: 'Thunder',
-    image: 'images/thunder.svg'
-  },
-  {
-    city: 'Patna',
-    state: 'Bihar',
-    degree: 30,
-    weather: 'Humidity',
-    image: 'images/humid.svg'
-  },
-  {
-    city: 'Gurugram',
-    state: 'Haryana',
-    degree: 34,
-    weather: 'Sunny',
-    image: 'images/sunny.svg'
-  },
-  {
-    city: 'Mumbai',
-    state: 'Maharashtra',
-    degree: 20,
-    weather: 'Rainy',
-    image: 'images/rainy.svg'
-  },
-  {
-    city: 'Amaravati',
-    state: 'Andra Pradesh',
-    degree: 23,
-    weather: 'Humidity',
-    image: 'images/humid.svg'
-  },
-  {
-    city: 'Jaipur',
-    state: 'Rajasthan',
-    degree: 32,
-    weather: 'Sunny',
-    image: 'images/sunny.svg'
-  },
-  {
-    city: 'Panaji',
-    state: 'Goa',
-    degree: 22,
-    weather: 'Rainy',
-    image: 'images/rainy.svg'
-  },
-  {
-    city: 'Mysore',
-    state: 'Karnataka',
-    degree: 24,
-    weather: 'Partly Cloudy',
-    image: 'images/cloudy.svg'
-  },
-  {
-    city: 'Madurai',
-    state: 'TamilNadu',
-    degree: 35,
-    weather: 'Sunny',
-    image: 'images/sunny.svg'
-  },
-  {
-    city: 'Alleppey',
-    state: 'Kerala',
-    degree: 20,
-    weather: 'Rainy',
-    image: 'images/rainy.svg'
-  }
-];
-
+const key = '538a4b01505051585af163fa90274182';
 let celsiusDetails = 26;
 let celsius = celsiusDetails;
 let farenheit;
 
+$('#button1').click(() =>{
+  let cityName = $("#in").val();
+  $.ajax({
+    url:'http://api.openweathermap.org/data/2.5/weather?q='+cityName+'&appid='+key+'&mode=json&units=metric',
+    type: 'GET',
+    success:function(data){
+        new ProcessData(data);
+    },
+    error:function(err){
+      console.log(err);
+    }
+});
+})
 
 /*This class Provides Date Details*/
 class DateProvider {
@@ -129,28 +49,30 @@ class DateProvider {
 
 
 class ProcessData {
-  constructor() {
-    this.process = (value) => {
-      document.getElementsByClassName("celsius")[0].style.color = "#1890f0";
-      document.getElementsByClassName("farenheit")[0].style.color = "#000000";
+  constructor(data) {
+    console.log(data);
+    
+    // this.process = (value) => {
+    //   document.getElementsByClassName("celsius")[0].style.color = "#1890f0";
+    //   document.getElementsByClassName("farenheit")[0].style.color = "#000000";
       // console.log(value);
-      this.cityDetails = array.filter((arr) => arr.city === value);
-      celsiusDetails = this.cityDetails[0].degree;
-      celsius = celsiusDetails;
+      // this.cityDetails = array.filter((arr) => arr.city === value);
+      // celsiusDetails = this.cityDetails[0].degree;
+      celsius = Math.round(data.main.temp);
       document.getElementsByClassName("cityName")[0]
-        .innerHTML = this.cityDetails[0].city + ", " + this.cityDetails[0].state;
+        .innerHTML = data.name + ", " + data.sys.country;
       document.getElementsByClassName("date")[0]
         .innerHTML = new DateProvider().dayInString + " " +
         new DateProvider().hours + ":" + new DateProvider().minutes + " " +
         new DateProvider().meridiem;
-      let img = " <img src='" + this.cityDetails[0].image +
-        "' alt'weather-icon' id='img'>"
+      // let img = " <img src='" + this.cityDetails[0].image +
+      //   "' alt'weather-icon' id='img'>"
       document.getElementsByClassName("condition")[0]
-        .innerHTML = this.cityDetails[0].weather + img;
+        .innerHTML = data.weather;
       document.getElementsByClassName("degree")[0]
-        .innerHTML = this.cityDetails[0].degree;
+        .innerHTML = celsius;
       // console.log(img);
-    }
+    // }
   }
 }
 
