@@ -50,7 +50,7 @@
 
             </div>
             <div class="content">
-                <div class="cityName">Bangalore, Karnataka</div>
+                <div class="cityName">Bangalore, IN</div>
                 <div class="details">
                     <div class="date">Wednesday 1:00 pm</div>
                     <div class="condition">
@@ -69,25 +69,8 @@
                 </div>
                 <div class="inputDetails">
                     <div class="input">
-                        <input id="in" type="text" name="city" placeholder="Enter city name" list="datalist">
-                        <datalist id="datalist">
-                            <option value="Noida"></option>
-                            <option value="Bangalore"></option>
-                            <option value="Chennai"></option>
-                            <option value="Coimbatore"></option>
-                            <option value="Jaipur"></option>
-                            <option value="Mysore"></option>
-                            <option value="Alleppey"></option>
-                            <option value="Mumbai"></option>
-                            <option value="Panaji"></option>
-                            <option value="Amaravati"></option>
-                            <option value="Gurugram"></option>
-                            <option value="Patna"></option>
-                            <option value="Madurai"></option>
-                            <!-- This data list will be edited through javascript     -->
-                        </datalist>
-                        <button id="button1" type="submit"
-                            onclick="new ProcessData().process(document.getElementById('in').value)">
+                        <input id="in" type="text" name="city" placeholder="Enter city name">
+                        <button id="button1" type="submit">
                         </button>
                     </div>
                 </div>
@@ -98,6 +81,6 @@
         </div>
     </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="app.js"></script>
-
 </html>
