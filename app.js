@@ -53,8 +53,8 @@ class ProcessData {
     console.log(data);
     
     // this.process = (value) => {
-    //   document.getElementsByClassName("celsius")[0].style.color = "#1890f0";
-    //   document.getElementsByClassName("farenheit")[0].style.color = "#000000";
+      document.getElementsByClassName("celsius")[0].style.color = "#1890f0";
+      document.getElementsByClassName("farenheit")[0].style.color = "#000000";
       // console.log(value);
       // this.cityDetails = array.filter((arr) => arr.city === value);
       // celsiusDetails = this.cityDetails[0].degree;
@@ -65,10 +65,9 @@ class ProcessData {
         .innerHTML = new DateProvider().dayInString + " " +
         new DateProvider().hours + ":" + new DateProvider().minutes + " " +
         new DateProvider().meridiem;
-      // let img = " <img src='" + this.cityDetails[0].image +
-      //   "' alt'weather-icon' id='img'>"
-      document.getElementsByClassName("condition")[0]
-        .innerHTML = data.weather;
+        $("#img").attr('src','http://openweathermap.org/img/wn/'+data.weather[0].icon+'@2x.png');
+      document.getElementById('climate')
+        .innerHTML = data.weather[0].description.split(" ")[0]+" "+data.weather[0].description.split(" ")[1];
       document.getElementsByClassName("degree")[0]
         .innerHTML = celsius;
       // console.log(img);
