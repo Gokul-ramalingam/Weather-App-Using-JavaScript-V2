@@ -1,0 +1,117 @@
+body{
+    margin: 0;
+}
+.main{
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 100vh;
+    width: 100%;
+}
+.title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1890f0;
+}
+.container{
+    background-color: #f0f0f0;
+    display: grid;
+    grid-template-columns: 0.5fr 3fr 0.5fr;
+}
+
+.title h1{
+    color: #f0f0f0;
+    font-size: 3em;
+    font-family: sans-serif;
+}
+
+.title h1 span{
+    color: #0f0f0f;
+}
+
+.container .content{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+.container .content .cityName{
+    color: 	#0f0f0f;
+    font-size: 1.5em;
+    font-family: sans-serif;
+    margin-top: 10%;
+}
+
+.container .content .details
+{
+    margin-top: -13%;
+    font-family: sans-serif;
+}
+
+.container .content .details .condition{
+    margin-top : 1%;
+    display: grid;
+    grid-template-columns : 1fr 3fr;
+}
+
+.container .content .report{
+ margin-top: -32%;
+ display: flex;
+}
+
+.container .content .report .degree{
+    font-size: 3em;
+    font-family: sans-serif;
+    margin-right: 10px;
+}
+
+.container .content .report .celsius{
+    margin-top: 1%;
+    font-size: .8em;
+    color:#1890f0;
+    cursor: pointer;
+}
+
+.container .content .report .or{
+    margin-top: 1%;
+    font-size: 1.3em;
+    font-style : bold;
+}
+
+.container .content .report .farenheit{
+    margin-top: 1%;
+    font-size: .8em;
+    cursor: pointer;
+}
+
+.container .content .inputDetails
+{
+    font-family: sans-serif;
+    margin-top: -35%;
+}
+
+.container .content .inputDetails .placeholder{
+    font-size: .8em;
+    font-family: sans-serif;
+}
+
+.container .content .inputDetails .input
+{
+margin-top : 2%;    
+}
+
+.container .content .inputDetails input
+{
+width: 75%;
+height: 30px;
+font-size: 1em; 
+color: #a8a8a8;   
+}
+
+button{
+    visibility: hidden;  
+}
+
+#img{
+    margin-top: 1%;
+    height: 1em;
+}

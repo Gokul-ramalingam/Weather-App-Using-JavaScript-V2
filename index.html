@@ -1,0 +1,104 @@
+<!-- Author : Gokul 
+     Description : Simple weather application designed and developed to view 
+     the weather details of the city based on the search.  -->
+<html>
+
+<head>
+    <title>Weather Application</title>
+
+    <!-- Metadata is data (information) about data.
+
+        The <meta> tag provides metadata about the HTML document. Metadata 
+        will not be displayed on the page, but will be machine parsable.
+
+        Meta elements are typically used to specify page description, 
+        keywords, author of the document, last modified, and other metadata.
+
+        The metadata can be used by browsers (how to display content or reload 
+        page), search engines (keywords), or other web services.
+
+        Element : <Meta> Supported by chorome:yes,Internet Explorer:yes,
+        Mozilla:yes,Safari:yes,Opera:yes-->
+
+    <meta charset="UTF-8">
+    <meta name="description" content="This is a weather application 
+        provides weather destails of cities based on user search">
+    <meta name="author" content="Gokul R">
+
+    <!-- A <meta> viewport element gives the browser instructions on 
+        how to control the page's dimensions and scaling.
+
+        The width=device-width part sets the width of the page to follow the 
+        screen-width of the device (which will vary depending on the device).
+        
+        The initial-scale=1.0 part sets the initial zoom level when the page 
+        is first loaded by the browser. -->
+
+    <meta name="viewport" content="width = device-width, 
+        initial-Scale = 1.0">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="title">
+            <h1>Weather <span>App</span></h1>
+        </div>
+        <div class="container">
+            <div class="left">
+
+            </div>
+            <div class="content">
+                <div class="cityName">Bangalore, Karnataka</div>
+                <div class="details">
+                    <div class="date">Wednesday 1:00 pm</div>
+                    <div class="condition">
+                        <span>Partly Cloudy</span>
+                        <img src="images/cloudy.svg" alt="weather-icon" id="img">
+                    </div>
+                </div>
+                <div class="report">
+                    <div><b class="degree">26</b></div> <span>
+                        <span class="celsius" onclick="new 
+                           Weather().changeToCelsius()">&#8451;</span>
+                        <span class="or">|</span>
+                        <span class="farenheit" onclick="new 
+                           Weather().changeToFahrenheit()"> &#8457;
+                        </span></span>
+                </div>
+                <div class="inputDetails">
+                    <div class="placeholder">Enter city name</div>
+                    <div class="input">
+                        <input id="in" type="text" name="city" placeholder="City name" list="datalist">
+                        <datalist id="datalist">
+                            <option value="Noida"></option>
+                            <option value="Bangalore"></option>
+                            <option value="Chennai"></option>
+                            <option value="Coimbatore"></option>
+                            <option value="Jaipur"></option>
+                            <option value="Mysore"></option>
+                            <option value="Alleppey"></option>
+                            <option value="Mumbai"></option>
+                            <option value="Panaji"></option>
+                            <option value="Amaravati"></option>
+                            <option value="Gurugram"></option>
+                            <option value="Patna"></option>
+                            <option value="Madurai"></option>
+                            <!-- This data list will be edited through javascript     -->
+                        </datalist>
+                        <button id="button1" type="submit"
+                            onclick="new ProcessData().process(document.getElementById('in').value)">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+
+            </div>
+        </div>
+    </div>
+</body>
+<script src="func.js"></script>
+
+</html>
