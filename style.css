@@ -1,5 +1,6 @@
 body{
     margin: 0;
+    align-items: center;
 }
 .main{
     display: grid;
@@ -13,10 +14,11 @@ body{
     justify-content: center;
     background-color: #1890f0;
 }
-.container{
+ .container{
     background-color: #f0f0f0;
     display: grid;
-    grid-template-columns: 0.5fr 3fr 0.5fr;
+    align-items: center;
+    grid-template-columns: 2fr 5fr 0.5fr;
 }
 
 .title h1{
@@ -43,7 +45,7 @@ body{
 
 .container .content .details
 {
-    margin-top: -13%;
+    margin-top: 4%;
     font-family: sans-serif;
 }
 
@@ -54,9 +56,10 @@ body{
 }
 
 .container .content .report{
- margin-top: -32%;
+ margin-top: 3%;
  display: flex;
 }
+
 
 .container .content .report .degree{
     font-size: 3em;
@@ -86,13 +89,13 @@ body{
 .container .content .inputDetails
 {
     font-family: sans-serif;
-    margin-top: -35%;
+    margin-top: 5%;
 }
 
-.container .content .inputDetails .placeholder{
+/* .container .content .inputDetails .placeholder{
     font-size: .8em;
     font-family: sans-serif;
-}
+} */
 
 .container .content .inputDetails .input
 {
@@ -103,8 +106,16 @@ margin-top : 2%;
 {
 width: 75%;
 height: 30px;
-font-size: 1em; 
+font-size: .8em; 
 color: #a8a8a8;   
+outline: none;
+border:none;
+/* border: 1px solid #1890f0; */
+padding: 3.5% 2% 3.5% 2%;
+z-index: -1; /* hide shadow behind image */
+-webkit-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+-moz-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
 }
 
 button{
@@ -114,4 +125,4 @@ button{
 #img{
     margin-top: 1%;
     height: 1em;
-}
+} 
