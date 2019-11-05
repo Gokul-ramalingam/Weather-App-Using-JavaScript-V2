@@ -4,11 +4,11 @@ This Repository contains web based weather application designed and developed to
 
 ## Requirements
 
-- HTML
-- CSS
-- JavaScript ES6
-- JQuery
-- Open Weather API
+* HTML
+* CSS
+* JavaScript ES6
+* JQuery
+* Open Weather API
 
 ## Description
 
