@@ -68,7 +68,10 @@ class ProcessData {
       new DateProvider().hours + ":" + new DateProvider().minutes + " " +
       new DateProvider().meridiem);
         $("#img").attr('src','http://openweathermap.org/img/wn/'+data.weather[0].icon+'@2x.png');
-      $('#climate').text(data.weather[0].description.split(" ")[0]+" "+data.weather[0].description.split(" ")[1])
+        let climateInWords = data.weather[0].description.split(" ")[1] !== 
+        undefined?data.weather[0].description.split(" ")[0]+" "+data.weather[0].description.split(" ")[1]:
+        data.weather[0].description.split(" ")[0];
+      $('#climate').text(climateInWords);
       $(".degree").text(celsius);
   }
 }
