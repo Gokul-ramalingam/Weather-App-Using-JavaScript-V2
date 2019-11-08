@@ -10,7 +10,7 @@ $('#button1').click(() =>{
   $('#spin').addClass('fa fa-circle-o-notch fa-spin');
   // $('#spinButton').show();
   $.ajax({
-    url:'http://api.openweathermap.org/data/2.5/weather?q='+cityName+'&appid='+key+'&mode=json&units=metric',
+    url:'https://api.openweathermap.org/data/2.5/weather?q='+cityName+'&appid='+key+'&mode=json&units=metric',
     type: 'GET',
     success:function(data){
         new ProcessData(data);
